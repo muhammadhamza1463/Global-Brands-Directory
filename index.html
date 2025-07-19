@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Global Brands Directory</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+</head>
+<body>
+    
+    <canvas id="three-canvas"></canvas>
+
+    <header>
+        <h1>🌐 Global Brands Directory</h1>
+        <p>A seamless, global platform linking users with leading brands, because premium should be the standard, not the exception.</p>
+    </header>
+
+    <main>
+        <nav id="continent-nav">
+            <!-- A Continent buttons is injected here by JavaScript, e.g.: -->
+            <!--
+            <button class="continent-button" data-continent="Asia">
+                <img src="pics/asia.jpg" alt="Asia" class="continent-image">
+                <span>Asia</span>
+            </button>
+            -->
+        </nav>
+
+        <div id="content-area">
+            <section id="about-section" class="active-section">
+                <h2>About the Platform</h2>
+                <p style="text-align: justify;">The Global Brands Directory is a comprehensive, interactive platform that connects users to a curated selection of leading brands across the globe. It aims to centralize reliable information about local and international consumer and industrial brands, highlighting regional strength and global relevance. With a spotlight on Asia, particularly Pakistan, China, and South Korea, along with Europen, African and Arabian region, this directory allows businesses, researchers, and consumers to discover top companies in electronics, fashion, cosmetics, furniture, automotive, and tech. From global giants like Samsung and Dell to regional icons like Innoson Vehicles in Nigeria and Thebe Magugu in South Africa, the platform recognizes excellence, innovation, and impact. Whether you're sourcing products, tracking market trends, or researching brand influence, the Global Brands Directory bridges geographic gaps in the global commercial ecosystem.</p>
+            </section>
+
+            <section id="country-list" class="hidden-section">
+                <button class="back-button" data-target="continents">&larr; Back to Continents</button>
+                <h2>Countries in <span id="current-continent-name"></span></h2>
+                <div class="list-container" id="countries-container">
+                    <!-- Country buttons is injected here by JavaScript -->
+                </div>
+            </section>
+
+            <section id="category-list" class="hidden-section">
+                <button class="back-button" data-target="countries">&larr; Back to Countries</button>
+                <h2>Categories in <span id="current-country-name"></span></h2>
+                <div class="list-container" id="categories-container">
+                    <!-- Category buttons is injected here by JavaScript -->
+                </div>
+            </section>
+
+            <section id="brand-list" class="hidden-section">
+                <button class="back-button" data-target="categories">&larr; Back to Categories</button>
+                <h2>Brands in <span id="current-category-name"></span> (<span id="current-brand-country-name"></span>)</h2>
+                <ul id="brands-container">
+                    <!-- Brands will be injected here by JavaScript -->
+                </ul>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Global Brands Directory. All rights reserved.</p>
+    </footer>
+
+    <!-- Theme Toggle Button -->
+    <button id="theme-toggle" class="theme-toggle">💡</button>
+
+    <script src="script.js"></script>
+</body>
+</html>

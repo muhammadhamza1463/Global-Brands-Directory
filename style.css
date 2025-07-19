@@ -1,0 +1,505 @@
+:root {
+    
+    --primary-color: #007bff;
+    --secondary-color: #6c757d; 
+    --accent-color: #28a745; 
+    --bg-color: #f8f9fa; 
+    --text-color: #343a40; 
+    --card-bg: #ffffff; 
+    --border-color: #dee2e6; 
+    --shadow-color: rgba(0, 0, 0, 0.1); 
+    --header-footer-bg: rgba(0, 123, 255, 0.9); 
+    --content-bg: rgba(255, 255, 255, 0.95); 
+    --button-hover-bg: #5a6268; 
+    --button-active-bg: var(--accent-color); 
+    --link-color: var(--secondary-color); 
+    --link-hover-color: #0056b3; 
+    --header-text-shadow: 2px 2px 4px rgba(0,0,0,0.3); 
+}
+
+
+body.dark-theme {
+    --primary-color: #8ab4f8; 
+    --secondary-color: #a0a0a0; 
+    --accent-color: #6dd5ed; 
+    --bg-color: #1a1a2e; 
+    --text-color: #e0e0e0; 
+    --card-bg: #2e2e4a; 
+    --border-color: #4a4a6e; 
+    --shadow-color: rgba(0, 0, 0, 0.4); 
+    --header-footer-bg: rgba(46, 46, 74, 0.9); 
+    --content-bg: rgba(46, 46, 74, 0.95); 
+    --button-hover-bg: #7b7b7b; 
+    --button-active-bg: var(--accent-color); 
+    --link-color: var(--secondary-color); 
+    --link-hover-color: #8ab4f8; 
+    --header-text-shadow: 2px 2px 6px rgba(0,0,0,0.6); 
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    overflow-x: hidden; /* Prevent horizontal scroll from 3D background */
+    transition: background-color 0.5s ease, color 0.5s ease; /* Smooth theme transition */
+}
+
+/* Three.js Canvas Styling */
+#three-canvas {
+    position: fixed; /* Fixed position to cover the entire background */
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1; /* Place behind other content */
+    display: block;
+}
+
+header {
+    background-color: var(--header-footer-bg);
+    color: white;
+    padding: 2rem 1rem;
+    text-align: center;
+    box-shadow: 0 4px 8px var(--shadow-color); /* Refined shadow */
+    position: relative; /* Ensure it stacks above the canvas */
+    z-index: 1;
+    border-bottom-left-radius: 15px; /* Rounded corners for premium feel */
+    border-bottom-right-radius: 15px;
+}
+
+header h1 {
+    margin-top: 0;
+    font-size: 2.8rem; /* Slightly larger font */
+    animation: fadeInDown 1s ease-out; /* Animation for header text */
+    text-shadow: var(--header-text-shadow); /* Text shadow */
+    letter-spacing: 1px; /* Subtle letter spacing */
+}
+
+header p {
+    font-size: 1.2rem; /* Slightly larger font */
+    max-width: 800px;
+    margin: 0.8rem auto 0;
+    animation: fadeInUp 1s ease-out 0.2s; /* Animation for header paragraph */
+    opacity: 0.9;
+}
+
+main {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 0 15px;
+    position: relative; /* Ensure it stacks above the canvas */
+    z-index: 1;
+}
+
+#continent-nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 25px; /* Increased gap for bigger buttons */
+    margin-top: 30px; /* Space above continent selection */
+    margin-bottom: 30px;
+    padding: 15px;
+    background-color: var(--content-bg);
+    border-radius: 12px; /* More rounded corners */
+    box-shadow: 0 6px 12px var(--shadow-color); /* More prominent shadow */
+    animation: slideInUp 0.8s ease-out; /* Animation for continent buttons */
+    border: 1px solid var(--border-color); /* Subtle border */
+}
+
+.continent-button {
+    background-color: var(--secondary-color);
+    color: white;
+    border: none;
+    padding: 15px; /* Increased padding */
+    border-radius: 15px; /* More rounded */
+    cursor: pointer;
+    font-size: 1.1rem; /* Slightly larger font */
+    font-weight: 600; /* Bolder text */
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease, filter 0.3s ease;
+    text-align: center;
+    display: flex; /* Use flexbox for image and text alignment */
+    flex-direction: column; /* Stack image and text vertically */
+    align-items: center; /* Center items horizontally */
+    justify-content: center; /* Center items vertically */
+    width: 200px; /* Fixed width for a larger button */
+    height: 220px; /* Fixed height for a larger button */
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3); /* Enhanced shadow */
+    background-image: linear-gradient(45deg, var(--secondary-color) 0%, #889299 100%); /* Subtle gradient */
+    overflow: hidden; /* Hide overflow for rounded images */
+    position: relative;
+}
+
+.continent-button .continent-image {
+    width: 150px; /* Bigger image size */
+    height: 150px; /* Bigger image size */
+    border-radius: 10px; /* Rounded corners for images */
+    object-fit: cover; /* Ensure image covers the area */
+    margin-bottom: 10px; /* Space between image and text */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2); /* Shadow for images */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.continent-button:hover .continent-image {
+    transform: scale(1.05) rotate(2deg); /* Slight zoom and rotation on hover */
+    box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+}
+
+.continent-button span {
+    color: white;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.5); /* Text shadow for readability over image */
+}
+
+
+.continent-button:hover, .country-button:hover, .category-button:hover {
+    background-color: var(--button-hover-bg);
+    transform: translateY(-5px) scale(1.03); /* More pronounced hover effect */
+    box-shadow: 0 8px 20px rgba(0,0,0,0.4); /* Deeper shadow on hover */
+    filter: brightness(1.1); /* Slight brightness increase */
+    background-image: linear-gradient(45deg, var(--button-hover-bg) 0%, #99a2a9 100%); /* Hover gradient */
+}
+
+.continent-button.active {
+    background-color: var(--button-active-bg);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    background-image: linear-gradient(45deg, var(--button-active-bg) 0%, #4caf50 100%); /* Active gradient */
+}
+
+/* Styles for Country and Category Buttons */
+.country-button, .category-button {
+    background-color: var(--secondary-color);
+    color: white;
+    border: none;
+    padding: 12px 20px; /* Slightly smaller padding than continent buttons */
+    border-radius: 10px; /* Rounded corners */
+    cursor: pointer;
+    font-size: 1rem; /* Standard font size */
+    font-weight: 600;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease, filter 0.3s ease;
+    text-align: center;
+    display: flex; /* Use flexbox for centering text */
+    align-items: center;
+    justify-content: center;
+    min-width: 180px; /* Minimum width for better touch targets */
+    flex-grow: 1; /* Allow buttons to grow and fill space */
+    box-shadow: 0 3px 10px rgba(0,0,0,0.2); /* Enhanced shadow */
+    background-image: linear-gradient(45deg, var(--secondary-color) 0%, #7a828a 100%); /* Subtle gradient */
+}
+
+/* Category icon styling */
+.category-button .icon {
+    margin-right: 8px; /* Space between icon and text */
+    font-size: 1.2em; /* Slightly larger icon */
+}
+
+
+#content-area {
+    background-color: var(--content-bg);
+    padding: 30px;
+    border-radius: 12px; /* More rounded corners */
+    box-shadow: 0 6px 12px var(--shadow-color); /* More prominent shadow */
+    animation: fadeIn 1s ease-out; /* Animation for content area */
+    border: 1px solid var(--border-color); /* Subtle border */
+}
+
+.hidden-section {
+    display: none;
+}
+
+section h2 {
+    color: var(--primary-color);
+    margin-top: 0;
+    border-bottom: 2px solid var(--border-color);
+    padding-bottom: 12px; /* Increased padding */
+    margin-bottom: 25px; /* Increased margin */
+    font-size: 2rem; /* Larger heading */
+    font-weight: 600;
+}
+
+.list-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px; /* Increased gap */
+    justify-content: center;
+    margin-bottom: 25px;
+}
+
+.brand-item {
+    background-color: var(--card-bg);
+    padding: 20px; /* Increased padding */
+    border-radius: 10px; /* More rounded */
+    border: 1px solid var(--border-color);
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1); /* Refined shadow */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.3s ease;
+    width: calc(33.333% - 20px); /* Adjust for 3 columns on larger screens */
+    min-width: 250px; /* Ensure minimum width */
+    box-sizing: border-box; /* Include padding and border in the element's total width and height */
+}
+
+.brand-item:hover {
+    transform: translateY(-4px); /* More pronounced hover */
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2); /* Deeper shadow on hover */
+    background-color: var(--bg-color); /* Subtle background change on hover */
+}
+
+.brand-item strong {
+    font-size: 1.2em; /* Larger font */
+    color: var(--primary-color);
+    margin-bottom: 8px; /* Increased margin */
+    font-weight: 700; /* Bolder */
+}
+
+.brand-item a {
+    color: var(--link-color);
+    text-decoration: none;
+    font-size: 1em; /* Slightly larger font */
+    word-break: break-all;
+    transition: color 0.3s ease;
+}
+
+.brand-item a:hover {
+    text-decoration: underline;
+    color: var(--link-hover-color);
+}
+
+#brands-container {
+    list-style: none;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Adjusted minmax for better layout */
+    gap: 25px; /* Increased gap */
+}
+
+.back-button {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 10px 20px; /* Increased padding */
+    border-radius: 8px; /* More rounded */
+    cursor: pointer;
+    font-size: 1rem;
+    margin-bottom: 25px; /* Increased margin */
+    display: inline-flex;
+    align-items: center;
+    gap: 8px; /* Increased gap for icon/text */
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.15); /* Refined shadow */
+    font-weight: 500;
+}
+
+.back-button:hover {
+    background-color: var(--link-hover-color);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 10px rgba(0,0,0,0.25);
+}
+
+footer {
+    text-align: center;
+    padding: 25px; /* Increased padding */
+    margin-top: 40px; /* Increased margin */
+    background-color: var(--header-footer-bg);
+    color: white;
+    box-shadow: 0 -4px 8px var(--shadow-color); /* Refined shadow */
+    position: relative; /* Ensure it stacks above the canvas */
+    z-index: 1;
+    border-top-left-radius: 15px; /* Rounded corners */
+    border-top-right-radius: 15px;
+}
+
+/* Theme Toggle Button (Example - you'd add this in HTML) */
+.theme-toggle {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: var(--accent-color);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    z-index: 10; /* Ensure it's above other content */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.theme-toggle:hover {
+    background-color: #218838;
+    transform: scale(1.1);
+}
+
+/* Loading Overlay */
+#loading-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7); /* Dark semi-transparent background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; /* On top of everything */
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+#loading-overlay.visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+.spinner {
+    border: 6px solid #f3f3f3; /* Light grey */
+    border-top: 6px solid var(--primary-color); /* Primary color */
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+
+/* Keyframe Animations */
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-30px); /* More pronounced movement */
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px); /* More pronounced movement */
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideInUp {
+    from {
+        opacity: 0;
+        transform: translateY(60px); /* More pronounced movement */
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
+    .brand-item {
+        width: calc(50% - 20px); /* 2 columns on medium screens */
+    }
+    .continent-button {
+        width: 180px;
+        height: 200px;
+    }
+    .continent-button .continent-image {
+        width: 130px;
+        height: 130px;
+    }
+}
+
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 2.2rem;
+    }
+    header p {
+        font-size: 1rem;
+    }
+    .continent-button {
+        padding: 12px 20px;
+        font-size: 0.95rem;
+        min-width: unset;
+        max-width: unset;
+        width: 160px;
+        height: 180px;
+    }
+    .continent-button .continent-image {
+        width: 110px;
+        height: 110px;
+    }
+    .country-button, .category-button {
+        padding: 10px 15px; /* Slightly reduced padding for smaller screens */
+        font-size: 0.9rem;
+        min-width: 150px; /* Adjust min-width for smaller screens */
+    }
+    #brands-container {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        gap: 15px;
+    }
+    main {
+        margin: 15px auto;
+        padding: 0 10px;
+    }
+    #content-area {
+        padding: 25px;
+    }
+    .brand-item {
+        width: calc(50% - 15px); /* Adjusted for smaller gap */
+        padding: 15px;
+    }
+    section h2 {
+        font-size: 1.8rem;
+    }
+}
+
+@media (max-width: 480px) {
+    header h1 {
+        font-size: 1.8rem;
+    }
+    #continent-nav, .list-container {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    .continent-button, .country-button, .category-button {
+        width: 100%;
+    }
+    .continent-button {
+        height: 160px; /* Adjust height for single column */
+    }
+    .continent-button .continent-image {
+        width: 100px;
+        height: 100px;
+    }
+    section h2 {
+        font-size: 1.5rem;
+    }
+    .back-button {
+        padding: 8px 15px;
+        font-size: 0.85rem;
+    }
+}
