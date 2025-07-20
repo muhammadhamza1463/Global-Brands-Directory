@@ -1,5 +1,4 @@
 :root {
-    
     --primary-color: #007bff;
     --secondary-color: #6c757d; 
     --accent-color: #28a745; 
@@ -16,7 +15,6 @@
     --link-hover-color: #0056b3; 
     --header-text-shadow: 2px 2px 4px rgba(0,0,0,0.3); 
 }
-
 
 body.dark-theme {
     --primary-color: #8ab4f8; 
@@ -113,7 +111,7 @@ main {
     background-color: var(--secondary-color);
     color: white;
     border: none;
-    padding: 15px; /* Increased padding */
+    padding: 0; /* Remove padding here, image will fill */
     border-radius: 15px; /* More rounded */
     cursor: pointer;
     font-size: 1.1rem; /* Slightly larger font */
@@ -123,48 +121,62 @@ main {
     display: flex; /* Use flexbox for image and text alignment */
     flex-direction: column; /* Stack image and text vertically */
     align-items: center; /* Center items horizontally */
-    justify-content: center; /* Center items vertically */
-    width: 200px; /* Fixed width for a larger button */
-    height: 220px; /* Fixed height for a larger button */
+    justify-content: flex-end; /* Align content to the bottom */
+    width: 220px; /* Fixed width for a larger button */
+    height: 250px; /* Fixed height for a larger button */
     box-shadow: 0 5px 15px rgba(0,0,0,0.3); /* Enhanced shadow */
-    background-image: linear-gradient(45deg, var(--secondary-color) 0%, #889299 100%); /* Subtle gradient */
     overflow: hidden; /* Hide overflow for rounded images */
-    position: relative;
+    position: relative; /* Needed for absolute positioning of image and text */
+    background-image: none; /* Remove gradient to let image dominate */
 }
 
 .continent-button .continent-image {
-    width: 150px; /* Bigger image size */
-    height: 150px; /* Bigger image size */
-    border-radius: 10px; /* Rounded corners for images */
+    width: 100%; /* Fill the button */
+    height: 100%; /* Fill the button */
+    border-radius: 15px; /* Match button border-radius */
     object-fit: cover; /* Ensure image covers the area */
-    margin-bottom: 10px; /* Space between image and text */
-    box-shadow: 0 4px 10px rgba(0,0,0,0.2); /* Shadow for images */
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: absolute; /* Position absolutely to cover the button */
+    top: 0;
+    left: 0;
+    z-index: 0; /* Behind the text */
+    box-shadow: none; /* No extra shadow on image itself */
+    transition: transform 0.3s ease;
 }
 
 .continent-button:hover .continent-image {
-    transform: scale(1.05) rotate(2deg); /* Slight zoom and rotation on hover */
-    box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+    transform: scale(1.05); /* Slight zoom on hover, no rotation for cleaner look */
 }
 
 .continent-button span {
+    position: relative; /* Keep text within flow, but above image */
+    z-index: 1; /* Ensure text is above the image */
+    background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent background for text */
     color: white;
-    text-shadow: 1px 1px 3px rgba(0,0,0,0.5); /* Text shadow for readability over image */
+    padding: 8px 15px; /* Padding for the text background */
+    border-radius: 8px; /* Rounded corners for text background */
+    margin-bottom: 10px; /* Space from the bottom of the card */
+    font-size: 1.2rem; /* Slightly larger text */
+    font-weight: 700;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.7); /* Stronger text shadow */
+    transition: background-color 0.3s ease;
 }
 
+.continent-button:hover span {
+    background-color: rgba(0, 0, 0, 0.75); /* Darker background on hover */
+}
 
-.continent-button:hover, .country-button:hover, .category-button:hover {
-    background-color: var(--button-hover-bg);
+.continent-button:hover {
     transform: translateY(-5px) scale(1.03); /* More pronounced hover effect */
     box-shadow: 0 8px 20px rgba(0,0,0,0.4); /* Deeper shadow on hover */
-    filter: brightness(1.1); /* Slight brightness increase */
-    background-image: linear-gradient(45deg, var(--button-hover-bg) 0%, #99a2a9 100%); /* Hover gradient */
+    filter: brightness(1.05); /* Slight brightness increase on the whole card */
+    background-image: none; /* Ensure no gradient on hover */
 }
 
 .continent-button.active {
-    background-color: var(--button-active-bg);
+    /* Background color will be handled by the image */
     box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-    background-image: linear-gradient(45deg, var(--button-active-bg) 0%, #4caf50 100%); /* Active gradient */
+    filter: brightness(1.1);
+    background-image: none; /* Ensure no gradient on active */
 }
 
 /* Styles for Country and Category Buttons */
@@ -188,12 +200,19 @@ main {
     background-image: linear-gradient(45deg, var(--secondary-color) 0%, #7a828a 100%); /* Subtle gradient */
 }
 
+.country-button:hover, .category-button:hover {
+    background-color: var(--button-hover-bg);
+    transform: translateY(-5px) scale(1.03); /* More pronounced hover effect */
+    box-shadow: 0 8px 20px rgba(0,0,0,0.4); /* Deeper shadow on hover */
+    filter: brightness(1.1); /* Slight brightness increase */
+    background-image: linear-gradient(45deg, var(--button-hover-bg) 0%, #99a2a9 100%); /* Hover gradient */
+}
+
 /* Category icon styling */
 .category-button .icon {
     margin-right: 8px; /* Space between icon and text */
     font-size: 1.2em; /* Slightly larger icon */
 }
-
 
 #content-area {
     background-color: var(--content-bg);
@@ -373,7 +392,6 @@ footer {
     100% { transform: rotate(360deg); }
 }
 
-
 /* Keyframe Animations */
 @keyframes fadeInDown {
     from {
@@ -417,19 +435,17 @@ footer {
     }
 }
 
-
 /* Responsive adjustments */
 @media (max-width: 992px) {
     .brand-item {
         width: calc(50% - 20px); /* 2 columns on medium screens */
     }
     .continent-button {
-        width: 180px;
-        height: 200px;
+        width: 200px;
+        height: 230px;
     }
-    .continent-button .continent-image {
-        width: 130px;
-        height: 130px;
+    .continent-button span {
+        font-size: 1.1rem;
     }
 }
 
@@ -441,16 +457,12 @@ footer {
         font-size: 1rem;
     }
     .continent-button {
-        padding: 12px 20px;
-        font-size: 0.95rem;
-        min-width: unset;
-        max-width: unset;
-        width: 160px;
-        height: 180px;
+        width: 180px;
+        height: 210px;
     }
-    .continent-button .continent-image {
-        width: 110px;
-        height: 110px;
+    .continent-button span {
+        font-size: 1rem;
+        padding: 6px 12px;
     }
     .country-button, .category-button {
         padding: 10px 15px; /* Slightly reduced padding for smaller screens */
@@ -485,15 +497,14 @@ footer {
         flex-direction: column;
         align-items: stretch;
     }
-    .continent-button, .country-button, .category-button {
-        width: 100%;
-    }
     .continent-button {
-        height: 160px; /* Adjust height for single column */
+        width: 90%; /* Make it almost full width on small screens */
+        height: 200px; /* Fixed height for consistency */
+        margin: 0 auto; /* Center the button */
     }
-    .continent-button .continent-image {
-        width: 100px;
-        height: 100px;
+    .continent-button span {
+        font-size: 0.95rem;
+        padding: 5px 10px;
     }
     section h2 {
         font-size: 1.5rem;
