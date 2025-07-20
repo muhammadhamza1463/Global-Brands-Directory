@@ -1,72 +1,877 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Global Brands Directory</title>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">  
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-</head>
-<body>
-    
-    <canvas id="three-canvas"></canvas>
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta name="author" content="Devcrud" />
+    <title>Hamza Portfolio</title>
+    <!-- font icons -->
+    <link
+      rel="stylesheet"
+      href="assets/vendors/themify-icons/css/themify-icons.css"
+    />
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="assets/css/hamza.css" />
+    <!-- W3 icon linkidin -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+  </head>
 
-    <header>
-        <h1>🌐 Global Brands Directory</h1>
-        <p>A seamless, global platform linking users with leading brands, because premium should be the standard, not the exception.</p>
-    </header>
-
-    <main>
-        <nav id="continent-nav">
-            <!-- A Continent buttons is injected here by JavaScript, e.g.: -->
-            <!--
-            <button class="continent-button" data-continent="Asia">
-                <img src="pics/asia.jpg" alt="Asia" class="continent-image">
-                <span>Asia</span>
-            </button>
-            -->
-        </nav>
-
-        <div id="content-area">
-            <section id="about-section" class="active-section">
-                <h2>About the Platform</h2>
-                <p style="text-align: justify;">The Global Brands Directory is a comprehensive, interactive platform that connects users to a curated selection of leading brands across the globe. It aims to centralize reliable information about local and international consumer and industrial brands, highlighting regional strength and global relevance. With a spotlight on Asia, particularly Pakistan, China, and South Korea, along with Europen, African and Arabian region, this directory allows businesses, researchers, and consumers to discover top companies in electronics, fashion, cosmetics, furniture, automotive, and tech. From global giants like Samsung and Dell to regional icons like Innoson Vehicles in Nigeria and Thebe Magugu in South Africa, the platform recognizes excellence, innovation, and impact. Whether you're sourcing products, tracking market trends, or researching brand influence, the Global Brands Directory bridges geographic gaps in the global commercial ecosystem.</p>
-            </section>
-
-            <section id="country-list" class="hidden-section">
-                <button class="back-button" data-target="continents">&larr; Back to Continents</button>
-                <h2>Countries in <span id="current-continent-name"></span></h2>
-                <div class="list-container" id="countries-container">
-                    <!-- Country buttons is injected here by JavaScript -->
-                </div>
-            </section>
-
-            <section id="category-list" class="hidden-section">
-                <button class="back-button" data-target="countries">&larr; Back to Countries</button>
-                <h2>Categories in <span id="current-country-name"></span></h2>
-                <div class="list-container" id="categories-container">
-                    <!-- Category buttons is injected here by JavaScript -->
-                </div>
-            </section>
-
-            <section id="brand-list" class="hidden-section">
-                <button class="back-button" data-target="categories">&larr; Back to Categories</button>
-                <h2>Brands in <span id="current-category-name"></span> (<span id="current-brand-country-name"></span>)</h2>
-                <ul id="brands-container">
-                    <!-- Brands will be injected here by JavaScript -->
-                </ul>
-            </section>
+  <body data-spy="scroll" data-target=".navbar" data-offset="40" id="home">
+    <!-- Header start -->
+    <header class="header">
+      <div class="container">
+        <ul class="social-icons pt-3">
+          <li class="social-item">
+            <a
+              class="social-link text-light"
+              href="mailto:muhammadhamza1463@gmail.com"
+              ><i class="ti-google" aria-hidden="true"></i
+            ></a>
+          </li>
+          <li class="social-item">
+            <a
+              class="social-link text-light"
+              href="https://www.linkedin.com/in/muhammah-hamza-azmat-6bb366213/"
+              ><i style="font-size: 24px" aria-hidden="true" class="fa"
+                >&#xf08c;</i
+              ></a
+            >
+          </li>
+          <li class="social-item">
+            <a
+              class="social-link text-light"
+              href="https://github.com/muhammadhamza1463"
+              ><i class="ti-github" aria-hidden="true"></i
+            ></a>
+          </li>
+        </ul>
+        <div class="header-content">
+         
+          <h1 class="header-title">Muhammad Hamza Azmat</h1>
+          <h6 class="header-mono">President IT & Robotics Society| University Ambassador Aspire Leadership Club<br>Developer | Designer | AI Enthausist</h6>
+          <a
+            class="btn btn-primary btn-rounded ti-printer pr-2"
+            style="height: 50px; width: 150px; align-items: center"
+            href="https://drive.google.com/file/d/1KshylBlHSXOf0os33RMDgG45KeVaUWzm/view?usp=sharing"
+          >
+            Print CV</a
+          >
         </div>
-    </main>
+      </div>
+    </header>
+    <!-- Header end -->
 
-    <footer>
-        <p>&copy; 2025 Global Brands Directory. All rights reserved.</p>
+    <!-- Navigation start -->
+    <nav
+      class="navbar sticky-top navbar-expand-lg navbar-light bg-white"
+      data-spy="affix"
+      data-offset-top="510"
+    >
+      <div class="container">
+        <button
+          class="navbar-toggler ml-auto"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div
+          class="collapse mt-sm-20 navbar-collapse"
+          id="navbarSupportedContent"
+        >
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+              <a href="#home" class="nav-link">Home</a>
+            </li>
+            <li class="nav-item">
+              <a href="#about" class="nav-link">About</a>
+            </li>
+            <li class="nav-item">
+              <a href="#resume" class="nav-link">Expertise</a>
+            </li>
+          </ul>
+          <ul class="navbar-nav brand">
+            <img src="assets/imgs/my pic.jpg" alt="" class="brand-img" />
+            <li class="brand-txt">
+              <h5 class="brand-title">Muhammad Hamza Azmat</h5>
+              <div class="brand-subtitle">
+               Presdient IT & Robotics Society @ CUSIT<br>Ambassador | Designer | Developer | AI Enthausist
+              </div>
+            </li>
+          </ul>
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <a href="#Projects" class="nav-link">Projects</a>
+              </li>
+            <li class="nav-item">
+              <a href="#blog" class="nav-link">Certifications</a>
+            </li>
+            <li class="nav-item last-item">
+              <a href="#contact" class="nav-link">Contact</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <!-- Navigation end -->
+
+    <!-- About me -->
+    <div class="container-fluid">
+      <div id="about" class="row about-section">
+        <!-- Who i am -->
+        <div class="col-lg-4 about-card">
+          <h3 class="font-weight-light">Who am I ?</h3>
+          <span class="line mb-5"></span>
+          <h5 class="mb-3">
+            Designer | Developer & an AI Enthausist, Located In Our Lovely Earth
+          </h5>
+          <p class="mt-20">
+            As a Robotic enthusiastic, I am self-motivated, reliable, responsible, and hard-working person having the qualities like
+            visionary, research oriented and AI/ML applications. I work well under pressure and adhere to strict deadlines along with
+            planning and executing complex projects in a team environment with data analysis, and project management skill.
+
+          </p>
+          <a href="https://drive.google.com/file/d/1KshylBlHSXOf0os33RMDgG45KeVaUWzm/view?usp=sharing">
+            Download My CV
+          </a>
+        </div>
+
+        <!-- Personal info -->
+        <div class="col-lg-4 about-card">
+          <h3 class="font-weight-light">Personal Info</h3>
+          <span class="line mb-5"></span>
+          <ul class="mt40 info list-unstyled">
+            <li><span>Birthdate</span> : 26/11/2002</li>
+            <li><span>Email</span> : muhammadhamza1463@gmail.com</li>
+            <li><span>Phone</span> : +93 321 5621885</li>
+            <li><span>Address</span> : Peshawar, Pakistan.</li>
+          </ul>
+          <ul class="social-icons pt-3">
+            <li class="social-item">
+              <a class="social-link" href="mailto:muhammadhamza1463@gmail.com"
+                ><i class="ti-google" aria-hidden="true"></i
+              ></a>
+            </li>
+            <li class="social-item">
+              <a
+                class="social-link"
+                href="https://www.linkedin.com/in/muhammah-hamza-azmat-6bb366213/"
+                ><i style="font-size: 24px" aria-hidden="true" class="fa"
+                  >&#xf08c;</i
+                ></a
+              >
+            </li>
+            <li class="social-item">
+              <a class="social-link" href="https://github.com/muhammadhamza1463"
+                ><i class="ti-github" aria-hidden="true"></i
+              ></a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- My Expertise -->
+        <div class="col-lg-4 about-card">
+          <h3 class="font-weight-light">My Expertise</h3>
+          <span class="line mb-5"></span>
+          <div class="row">
+            <div class="col-1 text-danger pt-1">
+              <i class="ti-widget icon-lg"></i>
+            </div>
+            <div class="col-10 ml-auto mr-3">
+              <h6>Grahic Design</h6>
+              <p class="subtitle">Usign Canva & Figma.</p>
+              <hr />
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-1 text-danger pt-1">
+              <i class="ti-paint-bucket icon-lg"></i>
+            </div>
+            <div class="col-10 ml-auto mr-3">
+              <h6>Full Stack Web Development</h6>
+              <p class="subtitle">Full Stack web designer and Developer.</p>
+              <hr />
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-1 text-danger pt-1">
+              <i class="ti-stats-up icon-lg"></i>
+            </div>
+            <div class="col-10 ml-auto mr-3">
+              <h6>AI & Hardware</h6>
+              <p class="subtitle">Integrating Hardware and Software.</p>
+              <hr />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!--Education section-->
+    <section class="section" id="resume">
+      <div class="container">
+        <h2 class="mb-5"><span class="text-danger">Edu</span>cation</h2>  
+              <div class="card-body">
+                <h6 class="title text-danger">Bachelor of Science in Computer Science – 3.63 CGPA</h6>
+                <p><strong>City University of Science and IT - Pakistan</strong> (Oct 2021 - Sep 2025 Expected)
+                <ul>
+                  <p class="subtitle">
+                  <li>Active in IT & Robotics Society and Aspire Leadership Club</li>
+                  <li>Merit-based 100% scholarship holder, ranked in the <strong>top 10%</strong> of the class.</li>
+                  <li>Final year project: <strong>SandQiAmi-X.0</strong> - An autonomous medical assistance robot.</li> 
+                </ul> 
+               <hr />
+              
+                <h6 class="title text-danger">Aspire Leadership Program</h6>
+                <p><strong>Aspire Institute - USA</strong> (Jan 2024 - April 2024)</p>
+                <ul>
+                  <li>Completed an academic & professional development program supported by <strong>HarvardX coursework</strong> and <strong>Harvard University faculty.</strong></li>
+                </ul>
+                <hr />
+               
+                <h6 class="title text-danger">Full Stack Web Development</h6>
+                <p class="subtitle"><strong>City University of Science & information Technology, Peshawar - Pakistan </strong>(May 2024)</p>
+                <ul>
+                  <li>Hands-on training in <strong>HTML, CSS, Bootstrap, PHP, JavaScript, and databases.</strong></li>
+                  <li>Developed <strong>Point of Sale Application</strong></li>
+                </ul>
+                <hr />
+
+                <h6 class="title text-danger">English Presentation and Communication Workshop</h6>
+                <p><strong>City University of Science and IT - Pakistan</strong> (March 2023)</p>
+               <ul>
+                 <li>An <strong>eight-week workshop</strong> taught by Mr. Benjamin Laidlaw, organized by the Department of English, CUIST.</li>
+               </ul>
+               <hr /> 
+                
+                <h6 class="title text-danger">FSc Pre-Engineering</h6>
+                <p><strong>Edwardes College, Peshawar</strong> (Aug 2019 - Aug 2021)</p>
+                <ul>
+                  <li>Developed a foundation in English, Mathematics, Physics, and Chemistry.</li>
+                </ul>
+               <hr />
+
+              </div>
+      </div>
+    </section>
+
+    <!--expertise-->
+    <section class="section" id="resume">
+      <div class="container">
+        <h2 class="mb-5"><span class="text-danger">Ex</span>pertise</h2> 
+        <div class="row">
+          <!-- Projects & Experience -->
+          <div class="col-md-6 col-lg-6">
+            <div class="card">
+              <div class="card-header">
+                <div class="mt-2">
+                  <h4>Projects & Experience</h4>
+                  <span class="line"></span>
+                </div>
+              </div>
+              <div class="card-body">
+  
+                <h6 class="title text-danger">President – IT & Robotics Society</h6>
+                <p><strong>City University of Science and IT</strong> | Sep 2024 - Present</p>
+                <p class="subtitle">
+                  Promoted from <strong>General Secretary</strong> to <strong>President</strong> due to leadership, innovation, and project execution.  
+                  Spearheading <strong>technical projects, strategic planning, and student collaborations</strong> to enhance society performance.  
+                  Organizing and attend <strong>workshops, tech seminars, and competitions</strong> to foster innovation in <strong>robotics and AI</strong>.  
+                </p>
+                <hr />
+              
+                <h6 class="title text-danger">University Leader Internship</h6>
+                <p><strong>Aspire Institute, USA | At CUSIT</strong> | Sep 2024 - Present</p>
+                <p class="subtitle">
+                  Selected as a <strong>University Leader</strong> under the Aspire Leadership Program to empower <strong>first-generation students</strong>.  
+                  Leading <strong>diversity and inclusion initiatives</strong>, focusing on <strong>mentorship, strategic leadership, and community engagement</strong>.  
+                  Developed expertise in <strong>public speaking, strategic planning, and professional development</strong>.  
+                </p>
+                <hr />
+              
+                <h6 class="title text-danger">Web Development Internship</h6>
+                <p><strong>Digital Empowerment Pakistan</strong> | Aug 2024</p>
+                <p class="subtitle">
+                  Worked as a <strong>full-stack web development intern</strong>, designing and optimizing <strong>responsive website layouts</strong>.  
+                  Managed <strong>backend integration</strong> and <strong>database development</strong> for seamless functionality.  
+                  Ensured <strong>cross-browser compatibility</strong> and <strong>user experience optimization</strong> for web applications.  
+                </p>
+                <hr />
+              
+                <h6 class="title text-danger">General Secretary – IT & Robotics Society</h6>
+                <p><strong>City University of Science and IT</strong> | Sep 2023 - Aug 2024</p>
+                <p class="subtitle">
+                  Managed and documented <strong>society meetings, events, and strategic initiatives</strong>.  
+                  Oversaw <strong>team collaborations</strong>, ensuring smooth project execution and student engagement.  
+                  Coordinated <strong>robotics & AI projects</strong>, enhancing students' technical skills through <strong>hands-on learning experiences</strong>.  
+                </p>
+              
+              </div>
+              
+            </div>
+          </div>
+          <!-- Skills Section -->
+          <div class="col-md-6 col-lg-6">
+            <div class="card">
+              <div class="card-header">
+                <div class="pull-left">
+                  <h4 class="mt-2">Skills</h4>
+                  <span class="line"></span>
+                </div>
+              </div>
+              <div class="card-body pb-2">
+                <div class="row">
+                  
+                  <!-- Column 1 -->
+                  <div class="col-md-6">
+                    <h5 class="text-danger">Programming</h5>
+                    <h6>Python</h6>
+                    <div class="progress mb-3">
+                      <div class="progress-bar bg-danger" style="width: 85%;"></div>
+                    </div>
+                    <h6>C++</h6>
+                    <div class="progress mb-3">
+                      <div class="progress-bar bg-danger" style="width: 75%;"></div>
+                    </div>
+                    <h6>PHP & MySQL</h6>
+                    <div class="progress mb-3">
+                      <div class="progress-bar bg-danger" style="width: 80%;"></div>
+                    </div>
+                    <h6>JavaScript & HTML/CSS</h6>
+                    <div class="progress mb-3">
+                      <div class="progress-bar bg-danger" style="width: 90%;"></div>
+                    </div>
+
+                    <h5 class="text-danger">AI & Robotics</h5>
+                    <h6>Machine Learning</h6>
+                    <div class="progress mb-3">
+                      <div class="progress-bar bg-danger" style="width: 75%;"></div>
+                    </div>
+                    <h6>Arduino & Sensor Fusion</h6>
+                    <div class="progress mb-3">
+                      <div class="progress-bar bg-danger" style="width: 70%;"></div>
+                    </div>
+                    <h6>Algorithms</h6>
+                    <div class="progress mb-3">
+                      <div class="progress-bar bg-danger" style="width: 80%;"></div>
+                    </div>
+                    <h6>Arduino IDE</h6>
+                    <div class="progress mb-3">
+                      <div class="progress-bar bg-danger" style="width: 65%;"></div>
+                    </div>
+                    <h6>Research</h6>
+                    <div class="progress mb-3">
+                      <div class="progress-bar bg-danger" style="width: 75%;"></div>
+                    </div>
+                    <h6>AI Tools</h6>
+                    <div class="progress mb-3">
+                      <div class="progress-bar bg-danger" style="width: 75%;"></div>
+                    </div>
+
+                    <h5 class="text-danger">Designing</h5>
+                    <h6>Canva</h6>
+                    <div class="progress mb-3">
+                      <div class="progress-bar bg-danger" style="width: 75%;"></div>
+                    </div>
+                    <h6>Figma</h6>
+                    <div class="progress mb-3">
+                      <div class="progress-bar bg-danger" style="width: 65%;"></div>
+                    </div>
+                  </div>
+
+                  <!-- Column 2 -->
+                  <div class="col-md-6">
+                    <h5 class="text-danger">Soft Skills</h5>
+                    <h6>Leadership & Teamwork</h6>
+                    <div class="progress mb-3">
+                      <div class="progress-bar bg-danger" style="width: 90%;"></div>
+                    </div>
+                    <h6>Communication & Presentation</h6>
+                    <div class="progress mb-3">
+                      <div class="progress-bar bg-danger" style="width: 85%;"></div>
+                    </div>
+                    <h6>Critical Thinking & Problem-Solving</h6>
+                    <div class="progress mb-3">
+                      <div class="progress-bar bg-danger" style="width: 85%;"></div>
+                    </div>
+                    <h6>Project Management</h6>
+                    <div class="progress mb-3">
+                      <div class="progress-bar bg-danger" style="width: 80%;"></div>
+                    </div>
+                    <h6>Cost-Benifit Analysis</h6>
+                    <div class="progress mb-3">
+                      <div class="progress-bar bg-danger" style="width: 65%;"></div>
+                    </div>
+
+                    <h5 class="text-danger">Languages</h5>
+                    <h6>English (Fluent)</h6>
+                    <div class="progress mb-3">
+                      <div class="progress-bar bg-danger" style="width: 75%;"></div>
+                    </div>
+                    <h6>Urdu (Fluent)</h6>
+                    <div class="progress mb-3">
+                      <div class="progress-bar bg-danger" style="width: 95%;"></div>
+                    </div>
+                    <h6>Pashto (Native)</h6>
+                    <div class="progress mb-3">
+                      <div class="progress-bar bg-danger" style="width: 100%;"></div>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- My Hobbies -->
+    <div class="container container-fluid">
+      <h2 class="mb-5"><span class="text-danger">My</span> Hobbies</h2>
+      <div id="about" class="row about-section">
+        
+        <!-- Leadership Development -->
+        <div class="col-lg-4 about-card">
+          <h4 class="font-weight-light">Leadership Development Activities</h4>
+          <span class="line mb-5"></span>
+          <p class="mt-20" style="text-align: justify;">
+            I am passionate about enhancing my leadership skills through various development activities.  
+            This includes participating in <strong>leadership workshops</strong>, attending <strong>seminars</strong>, engaging in <strong>team-building exercises</strong>,  
+            and taking on <strong>leadership roles</strong> in community and academic projects.
+          </p>
+        </div>
+
+        <!-- Certifications & Lifelong Learning -->
+        <div class="col-lg-4 about-card">
+          <h4 class="font-weight-light">Certifications & Lifelong Learning</h4>
+          <span class="line mb-5"></span>
+          <p class="mt-20" style="text-align: justify;">
+            I am committed to continuous learning and professional growth by obtaining <strong>industry-recognized certifications</strong>  
+            and staying updated with emerging trends in <strong>Computer Science</strong>.  
+            This involves completing relevant courses and acquiring new skills to expand my expertise.  
+          </p>
+        </div>
+
+        <!-- Hiking & Outdoor Exploration -->
+        <div class="col-lg-4 about-card">
+          <h4 class="font-weight-light">Hiking & Outdoor Exploration</h4>
+          <span class="line mb-5"></span>
+          <p class="mt-20" style="text-align: justify;">
+            I enjoy <strong>hiking and exploring nature</strong>, as it provides a refreshing break from my professional routine.  
+            Hiking not only promotes <strong>physical well-being</strong> but also enhances <strong>mental clarity and problem-solving skills</strong>,  
+            allowing me to stay focused and creative in my work.
+          </p>
+        </div>
+
+      </div>
+    </div>
+
+
+    <!-- Projects -->
+    <section class="section blog" id="Projects">
+      <div class="container">
+        <h2 class="mb-5">
+          Few <span class="text-danger">Projects</span>
+        </h2>
+        <div class="row">
+
+          <!--Projects begin-->
+
+          <div style="width: 100%; border-radius: 20px" class="blog-card">
+            <div class="img-holder">
+              <img src="assets/imgs/yolo.jpg" alt="" />
+            </div>
+            <div class="content-holder">
+              <h6 class="title">Object Detection Model Using YOLOv5</h6>
+              <p>
+                <strong>Developed an AI-powered object detection model</strong> using <strong>YOLOv5</strong> in <strong>VS Code</strong>, leveraging the <strong>Ultralytics pre-trained model</strong>.    
+              </p>
+            </div>
+          </div>
+          <!-- end of project1 -->
+
+          <!--Projects begin-->
+
+          <div style="width: 100%; border-radius: 20px" class="blog-card">
+            <div class="img-holder">
+              <img style="height: 340px;" src="assets/imgs/global_brand.png" alt="" />
+            </div>
+            <div class="content-holder">
+              <h6 class="title">Global Brands Directory</h6>
+              <p>
+                <strong>A seamless website and a global platform linking users with leading brands, because premium should be the standard, not the exception.</strong>.    
+              </p>
+              <a href="https://muhammadhamza1463.github.io/Global-Brands-Directory/">
+               Visit Website
+              </a>
+            </div>
+          </div>
+          <!-- end of project1 -->
+
+          <div style="width: 100%; border-radius: 20px" class="blog-card"> 
+            <div class="img-holder">
+                <img
+                  style="height: 240px"
+                  src="assets/imgs/figma_interface.png"
+                  alt=""
+                />
+            </div>
+            <div class="content-holder">
+              <h6 class="title">Car Transport App – UI/UX Design</h6>
+              <p>
+                <strong>Designed a multi-functional Car Transport Application</strong> in <strong>Figma</strong>, focusing on <strong>user-friendly navigation and seamless experience</strong>.  
+                Developed an <strong>interactive UI</strong> with multiple pages, including <strong>ride history, real-time tracking, reviews management, and home dashboard</strong>.  
+                Ensured <strong>modern UX principles</strong> with <strong>intuitive layouts and accessibility features</strong> for an enhanced user experience.  
+              </p>
+
+            </div>
+            
+          </div>
+          <!-- end of project2 -->
+
+          <div style="width: 100%; border-radius: 20px" class="blog-card">
+            <div class="img-holder">
+              <img src="assets/imgs/icentric.png" alt="" />
+            </div>
+          <div class="content-holder">
+            <h6 class="title">iCentric</h6>
+            <p style="font-size: 18pt;">When Creativity meets, AI</p>
+
+            <p>
+              <b
+                >An AI Image generator, AI CHatbot, Updated Tech News and AI
+                Resourced service provider Web Application powered by Google
+                Gemini Pro & Stability.ai API`s</b
+              >
+            </p>
+          </div>
+          </div>
+          <!-- end of project3 -->
+
+          <div style="width: 100%; border-radius: 20px" class="blog-card"> 
+            <div class="img-holder">
+                <img
+                  style="height: 240px"
+                  src="assets/imgs/locationfinder.jpg"
+                  alt=""
+                />
+            </div>
+            <div class="content-holder">
+              <h6 class="title">Location Finder</h6>
+              <p>
+                <strong>Developed a web-based Location Finder</strong> under the <strong>IT & Robotics Society</strong> to enhance navigation across <strong>CUSIT buildings</strong>.  
+                Enables users to <strong>easily locate offices, classrooms, and other facilities</strong> by simply entering a <strong>professor's name or relevant keywords</strong>.  
+                Designed for <strong>multi-floor and multi-building support</strong>, improving accessibility within the university.  
+              </p>
+            </div>
+          </div>
+          <!-- end of project4 -->
+
+          <div style="width: 100%; border-radius: 20px" class="blog-card">
+            <div class="img-holder">
+              <img src="assets/imgs/cusit_skillup.png" alt="" />
+            </div>
+            <div class="content-holder">
+              <h6 class="title">CUSIT SkillUP Program</h6>
+
+              <p>
+                <b
+                  >A Short Courses website for City University`s Skillup
+                  Program</b
+                >
+              </p>
+            </div>
+          </div>
+          <!-- end of project5 -->
+          
+        </div>
+      </div>
+    </section>
+    <!--Projects end-->
+
+    <!-- Hire Me -->
+    <section class="section bg-dark py-5">
+      <div class="container text-center">
+        <h2 class="text-light mb-5 font-weight-normal">
+          I Am Available For FreeLance
+        </h2>
+        <a
+          href="mailto:muhammadhamza1463@gmail.com"
+          class="btn btn-primary w-lg"
+          style="color: black"
+          >Hire me</a
+        >
+      </div>
+    </section>
+
+    <!-- Certifications -->
+    <section class="section blog" id="blog">
+      <div class="container">
+        <h2 class="mb-5">
+          Speialization <span class="text-danger">& Certifications</span>
+        </h2>
+        <div class="row">
+          <!--Begin-->
+          <div style="width: 100%; border-radius: 10px" class="blog-card">
+            <div class="img-holder">
+              <img
+                src="assets/imgs/aspire leader certificate.jpg"
+                alt="Aspire LeaderShip Program, Alumni"
+              />
+            </div>
+            <div class="content-holder">
+              <h6 class="title">Aspire LeaderShip Program</h6>
+
+              <p>
+                <b
+                  >A globally recognized leadership development program supported by HarvardX coursework and Harvard University faculty. Focuses on strategic thinking, problem-solving, and leading impact-driven initiatives.</b
+                >
+              </p>
+
+              <a
+                href="https://www.aspireleaders.org/program/aspire-leaders/"
+                class="read-more"
+                >Read more <i class="ti-angle-double-right"></i
+              ></a>
+            </div>
+          </div>
+          <!--end1-->
+
+          <div style="width: 100%; border-radius: 10px" class="blog-card">
+            <div class="img-holder">
+              <img
+                src="assets/imgs/full_stack.jpg"
+                alt="Aspire LeaderShip Program, Alumni"
+              />
+            </div>
+            <div class="content-holder">
+              <h6 class="title">Full Stack Web Development</h6>
+
+              <p>
+                <b
+                  >City University of Science and IT (CUSIT), Peshawar. Hands-on training in front-end and back-end development, covering HTML, CSS, JavaScript, PHP, MySQL, and Bootstrap. Emphasized responsive design, user experience, and database integration.</b
+                >
+              </p>
+
+            </div>
+          </div>
+          <!--end2-->
+
+          <div style="width: 100%; border-radius: 10px" class="blog-card">
+            <div class="img-holder">
+              <img
+                src="assets/imgs/spacialization.png"
+                alt="HealthCare Spacialization"
+              />
+            </div>
+            <div class="content-holder">
+              <h6 class="title">Health IT Support Specialization</h6>
+
+              <p><b>From <strong>Johns Hopkins University</strong> Specialized in healthcare IT systems, electronic health records (EHR) and technical support. Explored industry best practices in <strong>digital health solutions</strong>.</b></p>
+
+              <a
+                href="https://www.coursera.org/account/accomplishments/specialization/ACNQCEDU9JGX"
+                class="read-more"
+                >Read more <i class="ti-angle-double-right"></i
+              ></a>
+            </div>
+          </div>
+          <!--end3-->
+
+          <div style="width: 100%; border-radius: 1opx" class="blog-card">
+            <div class="img-holder">
+              <img src="assets/imgs/english.jpg" alt="Machine Learning" />
+            </div>
+            <div class="content-holder">
+              <h6 class="title">English Presentation and Communications </h6>
+              <p><b>An 8 week workshop taught by <strong>Mr. Benjamin Laidlaw (UK)</strong>, focuing on <strong>english presentation and communications skill along with fluency</strong> organized by Depatment of English, CUSIT.</b></p>
+            </div>
+          </div>
+          <!--end4-->
+
+          <div style="width: 100%; border-radius: 1opx" class="blog-card">
+            <div class="img-holder">
+              <img src="assets/imgs/solar.jpg" alt="Machine Learning" />
+            </div>
+            <div class="content-holder">
+              <h6 class="title">Poster Competition</h6>
+              <p><b>Participated in the <strong>International Poster Competition</strong>, presenting a research paper on <strong>"Design and Implementation of a Solar Charging Station"</strong>. Demonstrated expertise in renewable energy solutions and sustainable technology.</strong> </b></p>
+            </div>
+          </div>
+          <!--end5-->
+
+          <div style="width: 100%; border-radius: 10px" class="blog-card">
+            <div class="img-holder">
+              <img
+                src="assets/imgs/car transport app.png"
+                alt="Car transport app"
+              />
+            </div>
+            <div class="content-holder">
+              <h6 class="title">Car Transport App in Figma</h6>
+              <p><b>Developed a prototype for a <strong>Car Transport App</strong> using Figma, featuring real-time tracking, ride history, and user reviews. Emphasized <strong>modern UI/UX principles and user-centered design</strong>.</b></p>
+
+              <a
+                href="https://www.coursera.org/account/accomplishments/verify/4ACJUSHM65KH"
+                class="read-more"
+                >Read more <i class="ti-angle-double-right"></i
+              ></a>
+            </div>
+          </div>
+          <!--end6-->
+          
+          <div style="width: 100%; border-radius: 10px" class="blog-card">
+            <div class="img-holder">
+              <img src="assets/imgs/powerpoint.png" alt="MS PowerPoint" />
+            </div>
+            <div class="content-holder">
+              <h6 class="title">Work Smarter with Microsoft powerpoint</h6>
+              <p><b>Certified by Microsoft. Gained expertise in advanced presentation design, automation tools, and collaboration features. Learned to create engaging and professional slides for business and academic settings.</b></p>
+
+              <a
+                href="https://www.coursera.org/account/accomplishments/verify/8PX954EPDXQM"
+                class="read-more"
+                >Read more <i class="ti-angle-double-right"></i
+              ></a>
+            </div>
+          </div>
+          <!--end7-->
+        </div>
+      </div>
+      <!-- & more section -->
+      <section style="height: 20px" class="section bg-dark py-5">
+        <div class="container text-center">
+          <a
+            href="https://drive.google.com/file/d/1fF6psCdGwKzLekHhS4Lb0BRparJh6HXe/view?usp=drive_link"
+            class="btn btn-primary w-lg"
+            style="margin-top: -25px"
+            >& more</a
+          >
+        </div>
+      </section>
+    </section>
+
+    <!---section for contact -->
+    <section
+      style="height: 150px; margin-top: -70px"
+      class="section bg-dark py-5"
+      id="contact"
+    >
+      <div class="container text-center">
+        <h4 class="contact-title" style="color: rgb(255, 135, 135)">
+          Get in touch
+        </h4>
+        <!-- Contact info -->
+        <div class="col-lg-4" style="color: rgb(255, 255, 255); float: left">
+          <div class="contact-info-card">
+            <div class="row mb-2">
+              <div class="col-1 pt-1 mr-1">
+                <i class="ti-map-alt icon-md"></i>
+              </div>
+              <div class="col-10">
+                <h6 class="d-inline">
+                  Address :<br />
+                  <span class="text-muted"
+                    >Peshawar, Pakistan</span
+                  >
+                </h6>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4" style="color: rgb(255, 255, 255); float: left">
+          <div class="contact-info-card">
+            <div class="row mb-2">
+              <div class="col-1 pt-1 mr-1">
+                <i class="ti-mobile icon-md"></i>
+              </div>
+              <div class="col-10">
+                <h6 class="d-inline">
+                  Phone : <br />
+                  <span class="text-muted">+92 321 5621885</span>
+                </h6>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4" style="color: rgb(255, 255, 255); float: left">
+          <div class="contact-info-card">
+            <div class="row mb-2">
+              <div class="col-1 pt-1 mr-1">
+                <i class="ti-envelope icon-md"></i>
+              </div>
+              <div class="col-10">
+                <h6 class="d-inline">
+                  Email :<br />
+                  <span class="text-muted">muhammadhamza1463@gmail.com</span>
+                </h6>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="section bg-dark py-5" style="height: 150px">
+      <div class="container">
+        <ul class="social-icons pt-4" style="align-items: center">
+          <li class="social-item">
+            <a
+              class="social-link text-light"
+              href="https://www.linkedin.com/in/muhammah-hamza-azmat-6bb366213/"
+              ><i style="font-size: 24px" aria-hidden="true" class="fa"
+                >&#xf08c;</i
+              ></a
+            >
+          </li>
+          <li class="social-item">
+            <a
+              class="social-link text-light"
+              href="https://drive.google.com/file/d/15bDvY3AXQLQQt25NN5G6frFiR5Gh4W1e/view?usp=sharing"
+              ><i class="ti-github" aria-hidden="true"></i
+            ></a>
+          </li>
+          <li class="social-item">
+            <a
+              class="social-link text-light"
+              href="mailto:muhammadhamza1463@gmail.com"
+              ><i class="ti-google" aria-hidden="true"></i
+            ></a>
+          </li>
+        </ul>
+        <p class="small mb-0 text-light">
+          &copy;
+          <script>
+            document.write(new Date().getFullYear());
+          </script>
+          Created With <i class="ti-heart text-danger"></i> By
+          <a href="#home" target="_blank"
+            ><span class="text-danger" title="Portfolio">Hamza</span></a
+          >
+        </p>
+      </div>
     </footer>
 
-    <!-- Theme Toggle Button -->
-    <button id="theme-toggle" class="theme-toggle">💡</button>
+    <!-- core  -->
+    <script src="assets/vendors/jquery/jquery-3.4.1.js"></script>
+    <script src="assets/vendors/bootstrap/bootstrap.bundle.js"></script>
 
-    <script src="script.js"></script>
-</body>
+    <!-- bootstrap 3 affix -->
+    <script src="assets/vendors/bootstrap/bootstrap.affix.js"></script>
+
+    <!-- hamza js -->
+    <script src="assets/js/hamza.js"></script>
+  </body>
 </html>
